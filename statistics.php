@@ -41,14 +41,14 @@
             </a>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="statistics.php"> 
                     <i class="fas fa-fw fa-chart-bar"></i>
                     <span>Statistics</span>
@@ -367,7 +367,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Soil</div>
+                                                Soil pH</div>
                                             <div class="h4 mb-0 font-weight-bold text-gray-800">pH: 6.5</div>
                                         </div>
                                         <div class="col-auto">

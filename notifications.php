@@ -41,7 +41,7 @@
             </a>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -62,7 +62,7 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="notifications.php">
                     <i class="fas fa-fw fa-bell"></i>
                     <span>Notifications</span></a>
@@ -156,7 +156,7 @@
                                     </div>
                                     <div>
                                         <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <span class="font-weight-bold">Suhu Terlalu Tinggi</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -291,218 +291,47 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                                   
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                        <h6 class="m-0 font-weight-bold text-primary">Notifikasi </h6>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-primary">
+                                    <i class="fas fa-file-alt text-white"></i>
+                                </div>
+                            </div>
+                                <div>
+                                    <div class="small text-gray-500">April 12, 2024. 12.30</div>
+                                    <span class="font-weight-bold">Suhu Terlalu Tinggi</span>
+                                </div>
+                        </a>
+                        <hr class="sidebar-divider d-none d-md-block">
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-success">
+                                    <i class="fas fa-donate text-white"></i>
+                                </div>
+                            </div>
+                                <div>
+                                    <div class="small text-gray-500">April 12, 2024. 12.30</div>
+                                        Tumbuhan Kalo Mati jadi Hantu, nggak?
+                                </div>
+                        </a>
+                        <hr class="sidebar-divider d-none d-md-block">
+                    </div>
+                    </div>
                     </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
+                </div>
+                <!-- /.container-fluid -->
 
-                       <!-- Temperature -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Temperature</div>
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800">50&#8451;</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-thermometer-half fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Humidity -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Humidity</div>
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800">70%</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-tint fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- NPK -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">NPK LEVELS
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">N: 30, P: 20, K: 50</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-leaf fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Soil -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Soil</div>
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800">pH: 6.5</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-seedling fa-3x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-12 col-md-12 mb-4">
-                            <div class="card shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <!-- Dropdown "Jenis Sensor" -->
-                                        <div class="dropdown">
-                                            <label for="sensorSelect">Jenis Sensor:</label>
-                                            <select id="sensorSelect">
-                                                <option value="temperature">Temperature</option>
-                                                <option value="humidity">Humidity</option>
-                                                <option value="npk">NPK</option>
-                                                <option value="soil">Soil</option>
-                                            </select>
-                                        </div>
-                                    
-                                        <!-- Kategori Waktu -->
-                                        <div class="category">
-                                            <a href="#" id="1year" class="icon" onclick="loadData('1year')">1 year</a>
-                                            <a href="#" id="1month" onclick="loadData('1month')">1 month</a>
-                                            <a href="#" id="1week" onclick="loadData('1week')">1 week</a>
-                                            <a href="#" id="1day" onclick="loadData('1day')">1 day</a>
-                                        </div>
-                                        <canvas id="myChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                var ctx = document.getElementById('myChart').getContext('2d');
-                                var myChart = new Chart(ctx, {
-                                    type: 'line', 
-                                    data: {
-                                        labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
-                                        datasets: [{
-                                            label: 'Data Sensor',
-                                            data: [12, 19, 3, 5, 2, 3, 8, 10, 15],
-                                            borderColor: 'rgba(75, 192, 192, 1)',
-                                            borderWidth: 1,
-                                            fill: false
-                                        }]
-                                    },
-                                    options: {
-                                        scales: {
-                                            x: {
-                                                beginAtZero: true
-                                            },
-                                            y: {
-                                                beginAtZero: true
-                                            }
-                                        }
-                                    }
-                                });
-                        
-                                // Handle sensor selection change
-                                document.getElementById('sensorSelect').addEventListener('change', function() {
-                                    updateChart();
-                                });
-                        
-                                // Load data based on time category
-                                window.loadData = function(category) {
-                                    document.querySelectorAll('.category a').forEach(function(el) {
-                                        el.classList.remove('active');
-                                    });
-                                    document.getElementById(category).classList.add('active');
-                                    updateChart();
-                                }
-                        
-                                function updateChart() {
-                                    var sensorType = document.getElementById('sensorSelect').value;
-                                    var category = document.querySelector('.category a.active').id;
-                        
-                                    // Update chart data based on sensorType and category
-                                    // Dummy data for example
-                                    var data = {
-                                        temperature: {
-                                            '1year': [/* data for 1 year */],
-                                            '1month': [/* data for 1 month */],
-                                            '1week': [/* data for 1 week */],
-                                            '1day': [/* data for 1 day */]
-                                        },
-                                        humidity: {
-                                            '1year': [/* data for 1 year */],
-                                            '1month': [/* data for 1 month */],
-                                            '1week': [/* data for 1 week */],
-                                            '1day': [/* data for 1 day */]
-                                        },
-                                        npk: {
-                                            '1year': [/* data for 1 year */],
-                                            '1month': [/* data for 1 month */],
-                                            '1week': [/* data for 1 week */],
-                                            '1day': [/* data for 1 day */]
-                                        },
-                                        soil: {
-                                            '1year': [/* data for 1 year */],
-                                            '1month': [/* data for 1 month */],
-                                            '1week': [/* data for 1 week */],
-                                            '1day': [/* data for 1 day */]
-                                        }
-                                    };
-                        
-                                    // Dummy labels for example
-                                    var labels = {
-                                        '1year': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                                        '1month': ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-                                        '1week': ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                                        '1day': ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00']
-                                    };
-                        
-                                    myChart.data.labels = labels[category];
-                                    myChart.data.datasets[0].data = data[sensorType][category];
-                                    myChart.update();
-                                }
-                        
-                                // Initial load
-                                updateChart();
-                            });
-                        </script>
 
             <!-- End of Main Content -->
 

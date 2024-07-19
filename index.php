@@ -53,7 +53,7 @@
                 <span>or use your email and password</span>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <a href="forgot-password.php">Forgot your password?</a>
+                <a href="forgot_password.php">Forgot your password?</a> 
                 <button type="submit">Sign in</button>
             </form>
         </div>

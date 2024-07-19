@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
-            // Login berhasil, arahkan ke dashboard.html
-            header("Location: dashboard.html");
+            // Login berhasil, arahkan ke dashboard.php
+            header("Location: dashboard.php");
             exit();
         } else {
             echo "Password salah!";

@@ -10,7 +10,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="register.php" method="POST">
+            <form id="register-form">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon">
@@ -34,7 +34,7 @@
             </form>
         </div>
         <div class="form-container sign-in">
-            <form action="signin.php" method="POST">
+            <form id="login-form">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon">
@@ -51,10 +51,11 @@
                     </a>
                 </div>
                 <span>or use your email and password</span>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <a href="forgot_password.php">Forgot your password?</a> 
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <a href="forgot_password.html">Forgot your password?</a> 
                 <button type="submit">Sign in</button>
+                <p id="errorMessage" style="color: red;"></p>
             </form>
         </div>
         <div class="toggle-container">
@@ -74,5 +75,6 @@
     </div>
 
     <script src="./js/script.js"></script>
+    <script type="module" src="./js/firebase-config.js"></script>
 </body>
 </html>

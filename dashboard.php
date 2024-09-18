@@ -454,7 +454,7 @@
 
                                         <!-- Kategori Waktu -->
                                         <div class="category mb-3">
-                                            <a href="#" id="1day" class="icon" onclick="loadData('1year')">Data Sensor dalam 24 Jam Terakhir</a>
+                                            <a href="#" id="1day" class="icon" onclick="loadData('1day')">Data Sensor dalam 24 Jam Terakhir</a>
                                         </div>
 
                                         <!-- Grafik Chart.js -->

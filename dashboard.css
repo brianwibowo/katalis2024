@@ -1,0 +1,26 @@
+/* Pindahkan ke file CSS terpisah */
+.calendar-container {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.days-grid span {
+    width: 40px;
+    height: 40px;
+    background-color: #e0e0e0;
+    color: #333;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.days-grid span.active {
+    background-color: #4e73df;
+    color: white;
+}

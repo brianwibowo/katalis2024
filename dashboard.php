@@ -1,3 +1,36 @@
+<?php
+// Include necessary files and start session
+session_start();
+
+// Supabase connection details
+$supabaseUrl = 'https://vgpnxrwylhohtldsqhcv.supabase.co';
+$supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZncG54cnd5bGhvaHRsZHNxaGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjIzMTY3NDEsImV4cCI6MjAzNzg5Mjc0MX0.sp-iJ9WL_he_34zqMDjREqd-Cmj7OX0OtIifJqK51Js';
+
+// Include Supabase client for database access
+echo '<script type="module">
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+  const supabaseUrl = "' . $supabaseUrl . '";
+  const supabaseKey = "' . $supabaseKey . '";
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  async function fetchData() {
+    let { data, error } = await supabase
+      .from("data_now")
+      .select("*");
+    
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(data);
+      // Insert logic to display the data in your dashboard
+    }
+  }
+
+  fetchData();
+</script>';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +44,11 @@
 
     <title>KATALIS2024 - Dashboard</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Link -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Import Chart.js -->
+    <link rel="stylesheet" href="dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -46,7 +76,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-2">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <a href="dashboard.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
                     <!-- Node Buttons -->
@@ -255,32 +285,12 @@
 
                                         <!-- Days of the month -->
                                         <div id="days" class="days-grid">
-                                            <!-- Days will be dynamically generated using JavaScript -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Basic CSS for Calendar Layout -->
-                    <style>
-                        .days-grid {
-                            display: grid;
-                            grid-template-columns: repeat(7, 1fr);
-                            gap: 10px;
-                        }
-
-                        .days-grid span {
-                            display: inline-block;
-                            width: 30px;
-                            height: 30px;
-                            line-height: 30px;
-                            text-align: center;
-                            border: 1px solid #ccc;
-                            border-radius: 4px;
-                        }
-                    </style>
 
 
                     <!-- End of Main Content -->
@@ -307,23 +317,7 @@
             </a>
 
             <!-- Logout Modal-->
-            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <a class="btn btn-primary" href="index.php">Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include 'logoutmodal.php'; ?>
 
             <!-- Bootstrap core JavaScript-->
             <script src="vendor/jquery/jquery.min.js"></script>

@@ -72,7 +72,7 @@
                                 </div>
                                 <div>
                                     <div class="small text-gray-500">April 12, 2024. 12.30</div>
-                                    Tumbuhan Kalo Mati jadi Hantu, nggak?
+                                    Aisya Food and Juice, Gede Miniro, Irsyad PSHT, Ending, Apriansyah Wibowo Generasi Muda Emas 2045
                                 </div>
                             </a>
                             <hr class="sidebar-divider d-none d-md-block">

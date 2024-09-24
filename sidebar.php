@@ -24,7 +24,7 @@
         </a>
     </li>
     <!-- Nav Item - Charts -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="history.php">
             <i class="fas fa-fw fa-history"></i>
             <span>History</span></a>

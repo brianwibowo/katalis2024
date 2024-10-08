@@ -165,7 +165,7 @@ echo '<script type="module">
 
                         <!-- pH -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-success shadow h-100 py-1">
+                            <div class="card border-left-primary shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">
@@ -183,7 +183,7 @@ echo '<script type="module">
 
                         <!-- Humidity -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-success shadow h-100 py-1">
+                            <div class="card border-left-primary shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">

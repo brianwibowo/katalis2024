@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
+                labels: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'],
                 datasets: [{
                     label: 'Data Sensor',
-                    data: [12, 19, 3, 5, 2, 3, 8, 10, 15],
+                    data: [12, 19, 3, 5, 2, 3, 8, 20, 15],
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1,
                     fill: false

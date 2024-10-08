@@ -16,21 +16,30 @@
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Nav Item - Statistics -->
     <li class="nav-item">
         <a class="nav-link" href="statistics.php">
             <i class="fas fa-fw fa-chart-bar"></i>
             <span>Statistics</span>
         </a>
     </li>
-    <!-- Nav Item - Charts -->
+
+    <!-- Nav Item - Components -->
+    <li class="nav-item">
+        <a class="nav-link" href="components.php">
+            <i class="fas fa-fw fa-tools"></i>
+            <span>Components</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - History -->
     <li class="nav-item">
         <a class="nav-link" href="history.php">
             <i class="fas fa-fw fa-history"></i>
             <span>History</span></a>
     </li>
 
-    <!-- Nav Item - Tables -->
+    <!-- Nav Item - Notifications -->
     <li class="nav-item">
         <a class="nav-link" href="notifications.php">
             <i class="fas fa-fw fa-bell"></i>

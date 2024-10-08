@@ -93,17 +93,13 @@ echo '<script type="module">
 
                         <!-- N -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-info shadow h-100 py-1">
+                            <div class="card border-left-primary shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">N
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">12</div>
-                                                </div>
-                                            </div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                N</div>
+                                            <div class="h4 mb-0 font-weight-bold text-gray-800">53.3</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-leaf fa-2x text-gray-300"></i>
@@ -115,20 +111,16 @@ echo '<script type="module">
 
                         <!-- P -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-primary shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">P
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">P: 04</div>
-                                                </div>
-                                            </div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                P</div>
+                                            <div class="h4 mb-0 font-weight-bold text-gray-800">22.3</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-leaf fa-2x text-gray-300"></i>
+                                            <i class="fas fa-vial fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -137,20 +129,16 @@ echo '<script type="module">
 
                         <!-- K -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-primary shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">K
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">K: 04</div>
-                                                </div>
-                                            </div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                K</div>
+                                            <div class="h4 mb-0 font-weight-bold text-gray-800">233.9</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-leaf fa-2x text-gray-300"></i>
+                                            <i class="fas fa-atom fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +147,7 @@ echo '<script type="module">
 
                         <!-- Temperature -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-primary shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">
@@ -177,7 +165,7 @@ echo '<script type="module">
 
                         <!-- pH -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">
@@ -186,7 +174,7 @@ echo '<script type="module">
                                             <div class="h4 mb-0 font-weight-bold text-gray-800">8</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-tint fa-2x text-gray-300"></i>
+                                            <i class="fas fa-flask fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -195,13 +183,13 @@ echo '<script type="module">
 
                         <!-- Humidity -->
                         <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-1">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-1">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Humidity</div>
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800">70%</div>
+                                            <div class="h4 mb-0 font-weight-bold text-gray-800">30</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-tint fa-2x text-gray-300"></i>
@@ -211,132 +199,112 @@ echo '<script type="module">
                             </div>
                         </div>
 
-                        <!-- Rainfall -->
-                        <div class="col-xl-2 col-md-3 mb-2">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-1">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Rainfall</div>
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800">80</div>
+                        <!-- Content Row -->
+
+                        <div class="row">
+                            <!-- Grafik dan dropdown sensor -->
+                            <div class="col-xl-8 col-md-7 mb-4">
+                                <div class="card shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <!-- Dropdown "Jenis Sensor" -->
+                                            <div class="dropdown mb-3">
+                                                <label for="sensorSelect">Jenis Sensor:</label>
+                                                <select id="sensorSelect">
+                                                    <option value="npk">N</option>
+                                                    <option value="npk">P</option>
+                                                    <option value="npk">K</option>
+                                                    <option value="temperature">Temperature</option>
+                                                    <option value="humidity">pH</option>
+                                                    <option value="npk">Humidity</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Kategori Waktu -->
+                                            <div class="category mb-3">
+                                                <a href="#" id="1day" class="icon" onclick="loadData('1day')">Data Sensor dalam 24 Jam Terakhir</a>
+                                            </div>
+
+                                            <!-- Grafik Chart.js -->
+                                            <canvas id="myChart"></canvas>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-seedling fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Kalender -->
+                            <div class="col-xl-4 col-md-5 mb-4">
+                                <div class="card shadow h-100 py-2">
+                                    <div class="card-body text-center">
+                                        <div class="calendar-container">
+                                            <!-- Year Navigation -->
+                                            <div class="year-navigation d-flex justify-content-between align-items-center mb-2">
+                                                <button id="prevYear" class="btn btn-sm btn-outline-secondary">&lt;</button>
+                                                <span id="year" class="h5">2024</span>
+                                                <button id="nextYear" class="btn btn-sm btn-outline-secondary">&gt;</button>
+                                            </div>
+
+                                            <!-- Month Navigation -->
+                                            <div class="month-navigation d-flex justify-content-between align-items-center mb-2">
+                                                <button id="prevMonth" class="btn btn-sm btn-outline-secondary">&lt;</button>
+                                                <span id="month" class="h6">April</span>
+                                                <button id="nextMonth" class="btn btn-sm btn-outline-secondary">&gt;</button>
+                                            </div>
+
+                                            <!-- Days of the month -->
+                                            <div id="days" class="days-grid">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- End of Main Content -->
+
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; KATALIS TE UNNES 2024</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+
                     </div>
-
-                    <!-- Content Row -->
-
-                    <div class="row">
-                        <!-- Grafik dan dropdown sensor -->
-                        <div class="col-xl-8 col-md-7 mb-4">
-                            <div class="card shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <!-- Dropdown "Jenis Sensor" -->
-                                        <div class="dropdown mb-3">
-                                            <label for="sensorSelect">Jenis Sensor:</label>
-                                            <select id="sensorSelect">
-                                                <option value="npk">N</option>
-                                                <option value="npk">P</option>
-                                                <option value="npk">K</option>
-                                                <option value="temperature">Temperature</option>
-                                                <option value="humidity">pH</option>
-                                                <option value="npk">Humidity</option>
-                                                <option value="soil">Rainfall</option>
-                                            </select>
-                                        </div>
-
-                                        <!-- Kategori Waktu -->
-                                        <div class="category mb-3">
-                                            <a href="#" id="1day" class="icon" onclick="loadData('1day')">Data Sensor dalam 24 Jam Terakhir</a>
-                                        </div>
-
-                                        <!-- Grafik Chart.js -->
-                                        <canvas id="myChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Kalender -->
-                        <div class="col-xl-4 col-md-5 mb-4">
-                            <div class="card shadow h-75 py-2">
-                                <div class="card-body text-center">
-                                    <div class="calendar-container">
-                                        <!-- Year Navigation -->
-                                        <div class="year-navigation d-flex justify-content-between align-items-center mb-2">
-                                            <button id="prevYear" class="btn btn-sm btn-outline-secondary">&lt;</button>
-                                            <span id="year" class="h5">2024</span>
-                                            <button id="nextYear" class="btn btn-sm btn-outline-secondary">&gt;</button>
-                                        </div>
-
-                                        <!-- Month Navigation -->
-                                        <div class="month-navigation d-flex justify-content-between align-items-center mb-2">
-                                            <button id="prevMonth" class="btn btn-sm btn-outline-secondary">&lt;</button>
-                                            <span id="month" class="h6">April</span>
-                                            <button id="nextMonth" class="btn btn-sm btn-outline-secondary">&gt;</button>
-                                        </div>
-
-                                        <!-- Days of the month -->
-                                        <div id="days" class="days-grid">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- End of Main Content -->
-
-                    <!-- Footer -->
-                    <footer class="sticky-footer bg-white">
-                        <div class="container my-auto">
-                            <div class="copyright text-center my-auto">
-                                <span>Copyright &copy; KATALIS TE UNNES 2024</span>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- End of Footer -->
+                    <!-- End of Content Wrapper -->
 
                 </div>
-                <!-- End of Content Wrapper -->
+                <!-- End of Page Wrapper -->
 
-            </div>
-            <!-- End of Page Wrapper -->
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
+                <!-- Logout Modal-->
+                <?php include 'logoutmodal.php'; ?>
 
-            <!-- Logout Modal-->
-            <?php include 'logoutmodal.php'; ?>
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
+                <!-- Page level plugins -->
+                <script src="vendor/chart.js/Chart.min.js"></script>
 
-            <!-- Page level plugins -->
-            <script src="vendor/chart.js/Chart.min.js"></script>
-
-            <!-- Page level custom scripts -->
-            <script src="js/demo/chart-area-demo.js"></script>
-            <script src="js/demo/chart-pie-demo.js"></script>
-            <script src="calendardb.js"></script>
-            <script src="chartdb.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="js/demo/chart-area-demo.js"></script>
+                <script src="js/demo/chart-pie-demo.js"></script>
+                <script src="calendardb.js"></script>
+                <script src="chartdb.js"></script>
 
 </body>
 

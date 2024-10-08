@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>KATALIS2024 - STATISTICS</title>
+    <title>KATALIS2024 - Statistics</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,22 +73,17 @@
                                                 <option value="temperature">Temperature</option>
                                                 <option value="humidity">pH</option>
                                                 <option value="npk">Humidity</option>
-                                                <option value="soil">Rainfall</option>
                                             </select>
                                         </div>
 
                                         <!-- Kategori Waktu -->
-                                        <div class="category mb-3">
-                                            <a href="#" id="1day" class="icon" onclick="loadData('1day')">1 Hari</a>
-                                        </div>
-                                        <div class="category mb-3">
-                                            <a href="#" id="1week" class="icon" onclick="loadData('1week')">1 Minggu</a>
-                                        </div>
-                                        <div class="category mb-3">
-                                            <a href="#" id="1month" class="icon" onclick="loadData('1month')">1 Bulan</a>
-                                        </div>
-                                        <div class="category mb-3">
-                                            <a href="#" id="1year" class="icon" onclick="loadData('1year')">1 Tahun</a>
+                                        <div class="d-sm-flex align-items-center justify-content-between mb-2">
+                                            <div>
+                                                <button class="btn btn-sm" style="background-color: #4c74dc; color: white;" id="1day" onclick="loadData('1day')">1 Hari</button>
+                                                <button class="btn btn-sm" style="background-color: #4c74dc; color: white;" id="1week" onclick="loadData('1week')">1 Minggu</button>
+                                                <button class="btn btn-sm" style="background-color: #4c74dc; color: white;" id="1month" onclick="loadData('1month')">1 Bulan</button>
+                                                <button class="btn btn-sm" style="background-color: #4c74dc; color: white;" id="1year" onclick="loadData('1year')">1 Tahun</button>
+                                            </div>
                                         </div>
 
                                         <!-- Grafik Chart.js -->
@@ -100,7 +95,7 @@
 
                         <!-- Kalender -->
                         <div class="col-xl-4 col-md-5 mb-4">
-                            <div class="card shadow h-75 py-2">
+                            <div class="card shadow h-100 py-2">
                                 <div class="card-body text-center">
                                     <div class="calendar-container">
                                         <!-- Year Navigation -->

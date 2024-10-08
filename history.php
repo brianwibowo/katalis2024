@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>KATALIS2024 - Dashboard</title>
+    <title>KATALIS2024 - History</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,10 +44,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                            <h6 class="m-0 font-weight-bold text-primary">Daftar Riwayat Hasil Sensor</h6>
-                            <button class="btn btn-sm" style="background-color: #4c74dc; color: white;">Node 1</button>
-                            <button class="btn btn-sm" style="background-color: #4c74dc; color: white;">Node 2</button>
-                            <button class="btn btn-sm" style="background-color: #4c74dc; color: white;">Node 3</button>
+                            <h6 class="m-0 font-weight-bold text-primary">Daftar Riwayat</h6>
                             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                                 <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
                             </a>
@@ -58,23 +55,27 @@
                                     <thead>
                                         <tr>
                                             <th>NO.</th>
-                                            <th>DATE</th>
-                                            <th>TEMPERATURE</th>
-                                            <th>HUMIDITY</th>
-                                            <th>NPK</th>
-                                            <th>SOIL</th>
-                                            <th>PREDICTION RESULT</th>
+                                            <th>Node</th>
+                                            <th>Date</th>
+                                            <th>N(mg/kg)</th>
+                                            <th>P(mg/kg)</th>
+                                            <th>K(mg/kg)</th>
+                                            <th>Temperature(&deg;C)</th>
+                                            <th>pH</th>
+                                            <th>Humidity(%)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
+                                            <td>1</td>
                                             <td>12-04-2004 18.30</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>$320,800</td>
+                                            <td>2.5</td>
+                                            <td>7.2</td>
+                                            <td>11.8</td>
+                                            <td>35</td>
+                                            <td>7.6</td>
+                                            <td>20</td>
                                         </tr>
                                     </tbody>
                                 </table>

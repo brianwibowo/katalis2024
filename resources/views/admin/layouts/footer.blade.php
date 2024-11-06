@@ -1,7 +1,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; {{config('app.name')}} 2021</span>
+            <span>Copyright KATALIS TE UNNES 2024</span>
         </div>
     </div>
 </footer>

@@ -16,6 +16,10 @@ Route::get('storage/image/{width}/{height}/{image_path}', 'Admin\UploadControlle
 Route::get('media/image/{image_path}', 'Admin\UploadController@readOriginalMedia')->where('image_path', '.*')->name('admin.media.original');
 
 Route::get('/', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/', function () {
     return view('admin.statistics');
 });
 

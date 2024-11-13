@@ -4,6 +4,9 @@
     Dashhboard
 @endsection
 
+@section('css-header')
+    <link href="{{ asset('assets/admin/css/dashboard.css') }}" rel="stylesheet" type="text/css">
+@endsection
 
 @section('content')
     <!-- Begin Page Content -->
@@ -199,9 +202,15 @@
             </div>
         @endsection
         @section('js-footer')
+            <script src="{{ asset('assets/admin/js/chartdb.js') }}"></script>
+            <script src="{{ asset('assets/admin/js/calendardb.js') }}"></script>
+
             <script>
                 $(document).ready(function() {
                     $(".dashboard-menu-link").addClass("active");
+
+                    initializeChart();
+                    initializeCalendar();
                 })
             </script>
         @endsection

@@ -1,28 +1,42 @@
-/* Pindahkan ke file CSS terpisah */
-.calendar-container {
-    width: 100%;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-/* Style dasar untuk setiap tanggal */
+#year, #month {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#prevMonth, #nextMonth, #prevYear, #nextYear {
+    cursor: pointer;
+    padding: 5px;
+    background-color: #FEC015;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
 .days-grid {
     display: grid;
-    grid-template-columns: repeat(7, 40px); /* 7 kolom, 1 untuk setiap hari dalam seminggu */
+    grid-template-columns: repeat(7, 1fr); /* Menyesuaikan kolom agar rata */
     gap: 5px;
-    justify-content: center;
+    justify-items: center; /* Center-kan setiap elemen dalam grid */
+    padding: 5px;
+    margin-top: 10px;
 }
 
 .days-grid span {
-    width: 40px;
-    height: 40px;
+    width: 34.5px;
+    height: 34.5px;
     background-color: #e0e0e0;
     color: #333;
-    display: inline-block;
+    display: flex;
+    align-items: center; /* Vertikal center text */
+    justify-content: center; /* Horizontal center text */
     text-align: center;
-    line-height: 40px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -32,10 +46,27 @@
     background-color: #ccc; /* Menambahkan efek hover */
 }
 
-/* Gaya untuk tanggal yang aktif */
 .days-grid span.active {
     background-color: #FEC015; /* Warna #FEC015 untuk tanggal aktif */
     color: white;
     font-weight: bold;
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Menambahkan gaya tambahan untuk responsivitas */
+@media (max-width: 768px) {
+    .calendar-container {
+        max-width: 100%; /* Pada layar lebih kecil, lebar kalender mengikuti lebar layar */
+        padding: 15px;
+    }
+
+    .days-grid {
+        grid-template-columns: repeat(7, 1fr); /* Menyesuaikan kolom untuk perangkat kecil */
+    }
+
+    .days-grid span {
+        width: 35px;
+        height: 35px;
+        font-size: 14px; /* Ukuran font lebih kecil di perangkat mobile */
+    }
 }

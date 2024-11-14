@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
-use App\Http\Controllers\SensorController;
+use App\Http\Controllers\Admin\ComponentsController;
+use App\Http\Controllers\Admin\StatisticsController;
+use App\Http\Controllers\Admin\HistoryController;
+use App\Http\Controllers\Admin\NotificationsController;
+use App\Http\Controllers\Admin\RecommenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,27 +30,12 @@ Route::post('/login', [LoginController::class, 'doLogin'])->name('admin.post_log
 // Route ke dashboard dengan middleware `auth`
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
-})->middleware('auth:admin')->name('admin.index');
+})->middleware('auth:admin')->name('admin.dashboard');
 
-// Route lainnya (pastikan rute-rute ini memerlukan autentikasi jika diperlukan)
-Route::get('/statistics', function () {
-    return view('admin.statistics');
-})->middleware('auth:admin');
+// Route untuk halaman lainnya dengan controller masing-masing
+Route::get('/statistics', [StatisticsController::class, 'index'])->middleware('auth:admin')->name('statistics.index');
+Route::get('/components', [ComponentsController::class, 'index'])->middleware('auth:admin')->name('components.index');
+Route::get('/history', [HistoryController::class, 'index'])->middleware('auth:admin')->name('history.index');
+Route::get('/notifications', [NotificationsController::class, 'index'])->middleware('auth:admin')->name('notifications.index');
+Route::get('/recommender', [RecommenderController::class, 'index'])->middleware('auth:admin')->name('recommender.index');
 
-Route::get('/components', function () {
-    return view('admin.components');
-})->middleware('auth:admin');
-
-Route::get('/history', function () {
-    return view('admin.history');
-})->middleware('auth:admin');
-
-Route::get('/notifications', function () {
-    return view('admin.notifications');
-})->middleware('auth:admin');
-
-Route::get('/recommender', function () {
-    return view('admin.recommender');
-})->middleware('auth:admin');
-
-Route::get('/api/sensor-data', [SensorController::class, 'fetchSensorData'])->name('sensor.data');

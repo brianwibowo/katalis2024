@@ -1,8 +1,7 @@
-<!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.blade.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard.index') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -11,14 +10,15 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="dashboard.blade.php">
+        <a class="nav-link" href="{{ route('dashboard.index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </a>
     </li>
 
     <!-- Nav Item - Statistics -->
     <li class="nav-item">
-        <a class="nav-link" href="statistics.blade.php">
+        <a class="nav-link" href="{{ route('admin.statistics') }}">
             <i class="fas fa-fw fa-chart-bar"></i>
             <span>Statistics</span>
         </a>
@@ -26,7 +26,7 @@
 
     <!-- Nav Item - Components -->
     <li class="nav-item">
-        <a class="nav-link" href="components.blade.php">
+        <a class="nav-link" href="{{ route('admin.components') }}">
             <i class="fas fa-fw fa-tools"></i>
             <span>Components</span>
         </a>
@@ -34,23 +34,26 @@
 
     <!-- Nav Item - History -->
     <li class="nav-item">
-        <a class="nav-link" href="history.blade.php">
+        <a class="nav-link" href="{{ route('admin.history') }}">
             <i class="fas fa-fw fa-history"></i>
-            <span>History</span></a>
+            <span>History</span>
+        </a>
     </li>
 
     <!-- Nav Item - Notifications -->
     <li class="nav-item">
-        <a class="nav-link" href="notifications.blade.php">
+        <a class="nav-link" href="{{ route('admin.notifications') }}">
             <i class="fas fa-fw fa-bell"></i>
-            <span>Notifications</span></a>
+            <span>Notifications</span>
+        </a>
     </li>
-    
-    <!-- Nav Item - Recommender-->
+
+    <!-- Nav Item - Recommender -->
     <li class="nav-item">
-        <a class="nav-link" href="recommender.blade.php">
+        <a class="nav-link" href="{{ route('admin.recommender') }}">
             <i class="fas fa-fw fa-brain"></i>
-            <span>Recommender</span></a>
+            <span>Recommender</span>
+        </a>
     </li>
 
     <!-- Divider -->
@@ -62,4 +65,3 @@
     </div>
 
 </ul>
-<!-- End of Sidebar -->

@@ -32,17 +32,14 @@
         <div class="row">
 
             <!-- N -->
-            <div class="col-xl-2 col-md-3 mb-2">
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                 <div class="card border-left-primary shadow h-100 py-1">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-1">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <div class="col mr-2">
+                                <div class="text-m font-weight-bold text-primary text-uppercase mb-1">
                                     N</div>
-                                <div class="h4 mb-0 font-weight-bold text-gray-800">23.3</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-leaf fa-2x text-gray-300"></i>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">23.3</div>
                             </div>
                         </div>
                     </div>
@@ -50,17 +47,14 @@
             </div>
 
             <!-- P -->
-            <div class="col-xl-2 col-md-3 mb-2">
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                 <div class="card border-left-primary shadow h-100 py-1">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-1">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <div class="col mr-2">
+                                <div class="text-m font-weight-bold text-primary text-uppercase mb-1">
                                     P</div>
-                                <div class="h4 mb-0 font-weight-bold text-gray-800">22.3</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-vial fa-2x text-gray-300"></i>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">22.3</div>
                             </div>
                         </div>
                     </div>
@@ -68,17 +62,14 @@
             </div>
 
             <!-- K -->
-            <div class="col-xl-2 col-md-3 mb-2">
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                 <div class="card border-left-primary shadow h-100 py-1">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-1">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <div class="col mr-2">
+                                <div class="text-m font-weight-bold text-primary text-uppercase mb-1">
                                     K</div>
-                                <div class="h4 mb-0 font-weight-bold text-gray-800">23.9</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-atom fa-2x text-gray-300"></i>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">23.9</div>
                             </div>
                         </div>
                     </div>
@@ -86,17 +77,14 @@
             </div>
 
             <!-- Temperature -->
-            <div class="col-xl-2 col-md-3 mb-2">
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                 <div class="card border-left-primary shadow h-100 py-1">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-1">
+                            <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Temperature</div>
-                                <div class="h4 mb-0 font-weight-bold text-gray-800">32&#8451;</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-thermometer-half fa-2x text-gray-300"></i>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">32&#8451;</div>
                             </div>
                         </div>
                     </div>
@@ -104,17 +92,14 @@
             </div>
 
             <!-- pH -->
-            <div class="col-xl-2 col-md-3 mb-2">
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                 <div class="card border-left-primary shadow h-100 py-1">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-1">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            <div class="col mr-2">
+                                <div class="text-m font-weight-bold text-success text-uppercase mb-1">
                                     pH</div>
-                                <div class="h4 mb-0 font-weight-bold text-gray-800">6.5</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-flask fa-2x text-gray-300"></i>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">6.5</div>
                             </div>
                         </div>
                     </div>
@@ -122,17 +107,14 @@
             </div>
 
             <!-- Humidity -->
-            <div class="col-xl-2 col-md-3 mb-2">
+            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                 <div class="card border-left-primary shadow h-100 py-1">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-1">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            <div class="col mr-2">
+                                <div class="text-m font-weight-bold text-success text-uppercase mb-1">
                                     Humidity</div>
-                                <div class="h4 mb-0 font-weight-bold text-gray-800">20</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-tint fa-2x text-gray-300"></i>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                             </div>
                         </div>
                     </div>

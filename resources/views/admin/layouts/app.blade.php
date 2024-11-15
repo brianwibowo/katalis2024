@@ -17,6 +17,7 @@
 
     <!-- Add any custom styles in the header -->
     @yield('css-header')
+    @yield('css')
 
     <script>
         var url = "{{ url('') }}/";

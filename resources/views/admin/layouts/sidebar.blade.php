@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard.index') }}">
@@ -9,7 +9,7 @@
     </a>
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('dashboard.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('dashboard.index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
@@ -17,7 +17,7 @@
     </li>
 
     <!-- Nav Item - Statistics -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.statistics') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.statistics') }}">
             <i class="fas fa-fw fa-chart-bar"></i>
             <span>Statistics</span>
@@ -25,7 +25,7 @@
     </li>
 
     <!-- Nav Item - Components -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.components') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.components') }}">
             <i class="fas fa-fw fa-tools"></i>
             <span>Components</span>
@@ -33,7 +33,7 @@
     </li>
 
     <!-- Nav Item - History -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.history') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.history') }}">
             <i class="fas fa-fw fa-history"></i>
             <span>History</span>
@@ -41,7 +41,7 @@
     </li>
 
     <!-- Nav Item - Notifications -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.notifications') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.notifications') }}">
             <i class="fas fa-fw fa-bell"></i>
             <span>Notifications</span>
@@ -49,7 +49,7 @@
     </li>
 
     <!-- Nav Item - Recommender -->
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.recommender') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.recommender') }}">
             <i class="fas fa-fw fa-brain"></i>
             <span>Recommender</span>
@@ -59,9 +59,14 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
 </ul>
+<style>
+    .nav-item.active {
+        background-color: #a0a0a0 !important;
+        color: white;
+    }
+
+    .nav-item.active .nav-link {
+        color: white !important;
+    }
+</style>

@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Dashhboard
+    Dashboard
 @endsection
 
 @section('css-header')
@@ -15,184 +15,129 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-2">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="dashboard.blade.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <a href="#" id="generateReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+            </a>
         </div>
 
         <!-- Node Buttons -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-2">
-            <div>
-                <button class="btn btn-sm" style="background-color: #4c74dc; color: white;">Node 1</button>
-                <button class="btn btn-sm" style="background-color: #4c74dc; color: white;">Node 2</button>
-                <button class="btn btn-sm" style="background-color: #4c74dc; color: white;">Node 3</button>
-            </div>
+        <div class="d-flex align-items-center justify-content-start mb-3">
+            @for ($i = 1; $i <= 3; $i++)
+                <button class="btn btn-sm node-btn mx-1" 
+                        style="background-color: #4c74dc; color: white;" 
+                        data-node="{{ $i }}">Node {{ $i }}</button>
+            @endfor
         </div>
 
         <!-- Content Row -->
         <div class="row">
-
-            <!-- N -->
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
-                <div class="card border-left-primary shadow h-100 py-1">
+            <!-- Grafik dan dropdown sensor -->
+            <div class="col-xl-8 col-md-7 mb-4">
+                <div class="card shadow h-100 py-2">
                     <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-m font-weight-bold text-primary text-uppercase mb-1">
-                                    N</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">23.3</div>
+                        <div class="chart-container">
+                            <!-- Dropdown "Jenis Sensor" -->
+                            <div class="dropdown mb-3">
+                                <label for="sensorSelect">Jenis Sensor:</label>
+                                <select id="sensorSelect">
+                                    <option value="npk">N</option>
+                                    <option value="p">P</option>
+                                    <option value="k">K</option>
+                                    <option value="temperature">Temperature</option>
+                                    <option value="ph">pH</option>
+                                    <option value="humidity">Humidity</option>
+                                </select>
+                            </div>
+
+                            <!-- Kategori Waktu -->
+                            <div class="category mb-3">
+                                <a class="icon">Data Sensor dalam 24 Jam Terakhir</a>
+                            </div>
+
+                            <!-- Grafik Chart.js -->
+                            <canvas id="myChart"></canvas>
+
+                            <!-- Keterangan Data -->
+                            <div class="sensor-info mt-3">
+                                <p id="sensorDetails" class="text-muted">
+                                    Data sensor <span id="sensorType">-</span> untuk Node <span id="nodeId">-</span> 
+                                    pada tanggal <span id="sensorDate">-</span>:
+                                    Menampilkan data dari <span id="startTime">-</span> 
+                                    sampai <span id="endTime">-</span>.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- P -->
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
-                <div class="card border-left-primary shadow h-100 py-1">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-m font-weight-bold text-primary text-uppercase mb-1">
-                                    P</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">22.3</div>
+            <!-- Kalender -->
+            <div class="col-xl-4 col-md-5 mb-4">
+                <div class="card shadow h-100 py-2">
+                    <div class="card-body text-center">
+                        <div class="calendar-container">
+                            <!-- Year Navigation -->
+                            <div class="year-navigation d-flex justify-content-between align-items-center mb-2">
+                                <button id="prevYear" class="btn btn-sm btn-outline-secondary">&lt;</button>
+                                <span id="year" class="h5">2024</span>
+                                <button id="nextYear" class="btn btn-sm btn-outline-secondary">&gt;</button>
+                            </div>
+
+                            <!-- Month Navigation -->
+                            <div class="month-navigation d-flex justify-content-between align-items-center mb-2">
+                                <button id="prevMonth" class="btn btn-sm btn-outline-secondary">&lt;</button>
+                                <span id="month" class="h6">April</span>
+                                <button id="nextMonth" class="btn btn-sm btn-outline-secondary">&gt;</button>
+                            </div>
+
+                            <!-- Days of the month -->
+                            <div id="days" class="days-grid">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+@endsection
 
-            <!-- K -->
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
-                <div class="card border-left-primary shadow h-100 py-1">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-m font-weight-bold text-primary text-uppercase mb-1">
-                                    K</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">23.9</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+@section('js-footer')
+    <script src="{{ asset('assets/admin/js/chartdb.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/calendardb.js') }}"></script>
 
-            <!-- Temperature -->
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
-                <div class="card border-left-primary shadow h-100 py-1">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Temperature</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">32&#8451;</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <script>
+        $(document).ready(function() {
+            $(".dashboard-menu-link").addClass("active");
 
-            <!-- pH -->
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
-                <div class="card border-left-primary shadow h-100 py-1">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-m font-weight-bold text-success text-uppercase mb-1">
-                                    pH</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">6.5</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            initializeChart();
+            initializeCalendar();
 
-            <!-- Humidity -->
-            <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
-                <div class="card border-left-primary shadow h-100 py-1">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-m font-weight-bold text-success text-uppercase mb-1">
-                                    Humidity</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            // Update chart and info dynamically
+            $('#sensorSelect').on('change', updateChartAndInfo);
+            $('.node-btn').on('click', function() {
+                $('.node-btn').removeClass('active');
+                $(this).addClass('active');
+                updateChartAndInfo();
+            });
 
-            <!-- Content Row -->
+            $('#generateReport').on('click', function() {
+                // Call Laravel route to generate report
+                window.location.href = "{{ route('admin.generateReport') }}";
+            });
+        });
 
-            <div class="row">
-                <!-- Grafik dan dropdown sensor -->
-                <div class="col-xl-8 col-md-7 mb-4">
-                    <div class="card shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <!-- Dropdown "Jenis Sensor" -->
-                                <div class="dropdown mb-3">
-                                    <label for="sensorSelect">Jenis Sensor:</label>
-                                    <select id="sensorSelect">
-                                        <option value="npk">N</option>
-                                        <option value="npk">P</option>
-                                        <option value="npk">K</option>
-                                        <option value="temperature">Temperature</option>
-                                        <option value="humidity">pH</option>
-                                        <option value="npk">Humidity</option>
-                                    </select>
-                                </div>
+        function updateChartAndInfo() {
+            let selectedSensor = $('#sensorSelect').val();
+            let selectedNode = $('.node-btn.active').data('node') || 1; // Default to Node 1
+            let date = new Date();
 
-                                <!-- Kategori Waktu -->
-                                <div class="category mb-3">
-                                    <a href="#" id="1day" class="icon" onclick="loadData('1day')">Data Sensor
-                                        dalam 24 Jam Terakhir</a>
-                                </div>
+            $('#sensorType').text(selectedSensor);
+            $('#nodeId').text(selectedNode);
+            $('#sensorDate').text(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`);
+            $('#startTime').text('00:00');
+            $('#endTime').text('22:00');
 
-                                <!-- Grafik Chart.js -->
-                                <canvas id="myChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kalender -->
-                <div class="col-xl-4 col-md-5 mb-4">
-                    <div class="card shadow h-100 py-2">
-                        <div class="card-body text-center">
-                            <div class="calendar-container">
-                                <!-- Year Navigation -->
-                                <div class="year-navigation d-flex justify-content-between align-items-center mb-2">
-                                    <button id="prevYear" class="btn btn-sm btn-outline-secondary">&lt;</button>
-                                    <span id="year" class="h5">2024</span>
-                                    <button id="nextYear" class="btn btn-sm btn-outline-secondary">&gt;</button>
-                                </div>
-
-                                <!-- Month Navigation -->
-                                <div class="month-navigation d-flex justify-content-between align-items-center mb-2">
-                                    <button id="prevMonth" class="btn btn-sm btn-outline-secondary">&lt;</button>
-                                    <span id="month" class="h6">April</span>
-                                    <button id="nextMonth" class="btn btn-sm btn-outline-secondary">&gt;</button>
-                                </div>
-
-                                <!-- Days of the month -->
-                                <div id="days" class="days-grid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endsection
-        @section('js-footer')
-            <script src="{{ asset('assets/admin/js/chartdb.js') }}"></script>
-            <script src="{{ asset('assets/admin/js/calendardb.js') }}"></script>
-
-            <script>
-                $(document).ready(function() {
-                    $(".dashboard-menu-link").addClass("active");
-
-                    initializeChart();
-                    initializeCalendar();
-                })
-            </script>
-        @endsection
+            // Refresh Chart (Add logic for AJAX call here if needed)
+            loadChartData(selectedSensor, selectedNode);
+        }
+    </script>
+@endsection

@@ -16,19 +16,31 @@ function generateDays(year, month) {
         dayElement.innerText = i;
         dayElement.classList.add('day'); // Add base day class
 
-        // Event listener untuk klik
-        dayElement.addEventListener('click', function() {
-            // Hapus kelas 'active' dari semua elemen hari
-            const allDays = document.querySelectorAll('.days-grid span');
-            allDays.forEach(day => day.classList.remove('active'));
-
-            // Tambahkan kelas 'active' pada hari yang diklik
+        dayElement.addEventListener('click', function () {
+            document.querySelectorAll('.days-grid span').forEach(day => day.classList.remove('active'));
             dayElement.classList.add('active');
+            const selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+            document.getElementById('generateReport').setAttribute('data-date', selectedDate);
         });
 
         daysContainer.appendChild(dayElement);
     }
 }
+
+// Menambahkan event listener untuk setiap tombol Node
+document.querySelectorAll('.node-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        // Menghapus kelas active dari semua tombol
+        document.querySelectorAll('.node-btn').forEach(btn => btn.classList.remove('active'));
+
+        // Menambahkan kelas active ke tombol yang diklik
+        this.classList.add('active');
+
+        // Menambahkan perubahan warna
+        this.style.backgroundColor = '#fec015'; // Warna aktif
+        this.style.color = '#ffffff';
+    });
+});
 
 // Generate initial days for the current month
 generateDays(currentYear, currentMonth);

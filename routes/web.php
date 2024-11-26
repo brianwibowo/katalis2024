@@ -31,6 +31,8 @@ Route::post('/login', [LoginController::class, 'doLogin'])->name('admin.post_log
 // Route ke dashboard dengan middleware `auth`
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+Route::get('/generate-report', [DashboardController::class, 'generateReport'])->name('admin.generateReport');
+
 // Route untuk halaman lainnya dengan controller masing-masing
 Route::get('/statistics', [StatisticsController::class, 'index'])->name('admin.statistics');
 Route::get('/components', [ComponentsController::class, 'index'])->name('admin.components');

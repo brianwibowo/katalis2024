@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SensorDataController; // Tambahkan titik koma di akhir
+use App\Http\Controllers\PVDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/send-sensor-data', [SensorDataController::class, 'store'])->withoutMiddleware('auth:api');
+Route::post('/send-pv-data', [PVDataController::class, 'store'])->withoutMiddleware('auth:api');
 
 

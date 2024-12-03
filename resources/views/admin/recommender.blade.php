@@ -33,80 +33,34 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="cropForm">
+                        <form id="cropForm" method="POST" action="{{ route('predict') }}">
+                            @csrf
                             <div class="form-group">
                                 <label for="nitrogen" class="form-label">Amount of Nitrogen in Soil</label>
-                                <input type="text" class="form-control input-placeholder" id="nitrogen" required>
+                                <input type="text" name="N" class="form-control input-placeholder" id="nitrogen" required>
                             </div>
                             <div class="form-group">
-                                <label for="phosphorous" class="form-label">Amount of Phosphorous in
-                                    Soil</label>
-                                <input type="text" class="form-control input-placeholder" id="phosphorous" required>
+                                <label for="phosphorous" class="form-label">Amount of Phosphorous in Soil</label>
+                                <input type="text" name="P" class="form-control input-placeholder" id="phosphorous" required>
                             </div>
                             <div class="form-group">
                                 <label for="potassium" class="form-label">Amount of Potassium in Soil</label>
-                                <input type="text" class="form-control input-placeholder" id="potassium" required>
+                                <input type="text" name="K" class="form-control input-placeholder" id="potassium" required>
                             </div>
                             <div class="form-group">
                                 <label for="temperature" class="form-label">Temperature (in Celsius)</label>
-                                <input type="text" class="form-control input-placeholder" id="temperature" required>
+                                <input type="text" name="Temperature" class="form-control input-placeholder" id="temperature" required>
                             </div>
                             <div class="form-group">
                                 <label for="humidity" class="form-label">Humidity (in %)</label>
-                                <input type="text" class="form-control input-placeholder" id="humidity" required>
+                                <input type="text" name="Humidity" class="form-control input-placeholder" id="humidity" required>
                             </div>
                             <div class="form-group">
                                 <label for="phValue" class="form-label">pH value of Soil</label>
-                                <input type="text" class="form-control input-placeholder" id="phValue" required>
+                                <input type="text" name="ph" class="form-control input-placeholder" id="phValue" required>
                             </div>
-                                        <div class="form-group">
-                                            <label for="modelType" class="form-label">Stacked Model Type</label>
-                                            <select class="form-control" id="modelType" required>
-                                                <option value="Select">Select</option>
-                                                <option value="KNN">KNN</option>
-                                                <option value="DT">Decision Tree (DT)</option>
-                                                <option value="RFC">Random Forest Classifier (RFC)</option>
-                                                <option value="GBC">Gradient Boosting Classifier (GBC)</option>
-                                                <option value="SVM">Support Vector Machine (SVM)</option>
-                                                <option value="ANN">Artificial Neural Network (ANN)</option>
-                                            </select>
-                                        </div>
-                                        <button id="predictBtn" class="btn-predict">Predict Crop</button>
+                            <button id="predictBtn" class="btn-predict">Predict Crop</button>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Prediction Modal -->
-        <div class="modal fade" id="predictionModal" tabindex="-1" role="dialog" aria-labelledby="predictionModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h2 class="modal-title" id="predictionModalLabel">Prediction: Rice Crop</h2>
-                    </div>
-                    <div class="modal-body">
-                        <img src="rice_harvesting.jpg" alt="Rice Crop" class="prediction-img">
-                        <p>
-                            Harvesting is the process of collecting the mature rice crop from the field.
-                            Depending on the variety, a rice crop usually reaches maturity at around 105–150
-                            days after crop establishment...
-                        </p>
-
-                        <!-- Model Prediction Table -->
-                        <div class="prediction-table">
-                            <div class="prediction-card">
-                                <h4>Prediction</h4>
-                                <p>Rice (99.84%)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button id="backBtn" class="btn-back">Back to Prediction</button>
                     </div>
                 </div>
             </div>

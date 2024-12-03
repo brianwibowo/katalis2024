@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\StatisticsController;
 use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\NotificationsController;
 use App\Http\Controllers\Admin\RecommenderController;
+use App\Http\Controllers\Admin\AIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,8 @@ Route::get('/components', [ComponentsController::class, 'index'])->name('admin.c
 Route::get('/history', [HistoryController::class, 'index'])->name('admin.history');
 Route::get('/notifications', [NotificationsController::class, 'index'])->name('admin.notifications');
 Route::get('/recommender', [RecommenderController::class, 'index'])->name('admin.recommender');
+
+Route::post('/predict', [AIController::class, 'predict'])->name('predict');
+
+
 

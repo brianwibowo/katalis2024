@@ -5,42 +5,51 @@
 @endsection
 
 @section('css-header')
-    <link href="{{ asset('assets/admin/css/dashboard.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
 @endsection
 
 @section('content')
-    <!-- Begin Page Content -->
     <div class="container-fluid">
+        <!-- Toast Notification -->
+        <div id="toastNotification"
+            class="toast align-items-center text-bg-warning border-0 position-fixed bottom-0 end-0 p-2" style="z-index: 1050;"
+            role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <span id="toastMessage">No data found for the selected filters.</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
 
-        <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-2">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" id="generateReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
-            </a>
         </div>
 
         <!-- Node Buttons -->
         <div class="d-flex align-items-center justify-content-start mb-3">
             @for ($i = 1; $i <= 3; $i++)
-                <button class="btn btn-sm node-btn mx-1" 
-                        style="background-color: #4c74dc; color: white;" 
-                        data-node="{{ $i }}">Node {{ $i }}</button>
+                <button class="btn btn-sm node-btn mx-1 btn-secondary" data-node="{{ $i }}">Node
+                    {{ $i }}</button>
             @endfor
         </div>
 
-        <!-- Content Row -->
         <div class="row">
             <!-- Grafik dan dropdown sensor -->
             <div class="col-xl-8 col-md-7 mb-4">
                 <div class="card shadow h-100 py-2">
+                    <div class="card-body text-center">
+                        <input type="text" id="datePicker" class="form-control" placeholder="Pilih Tanggal" readonly />
+                        <input type="hidden" id="selectedDate" value="{{ now()->format('Y-m-d') }}">
+                    </div>
                     <div class="card-body">
                         <div class="chart-container">
-                            <!-- Dropdown "Jenis Sensor" -->
                             <div class="dropdown mb-3">
                                 <label for="sensorSelect">Jenis Sensor:</label>
-                                <select id="sensorSelect">
-                                    <option value="npk">N</option>
+                                <select id="sensorSelect" class="form-control">
+                                    <option value="n">N</option>
                                     <option value="p">P</option>
                                     <option value="k">K</option>
                                     <option value="temperature">Temperature</option>
@@ -48,96 +57,177 @@
                                     <option value="humidity">Humidity</option>
                                 </select>
                             </div>
-
-                            <!-- Kategori Waktu -->
-                            <div class="category mb-3">
-                                <a class="icon">Data Sensor dalam 24 Jam Terakhir</a>
-                            </div>
-
-                            <!-- Grafik Chart.js -->
                             <canvas id="myChart"></canvas>
-
-                            <!-- Keterangan Data -->
-                            <div class="sensor-info mt-3">
-                                <p id="sensorDetails" class="text-muted">
-                                    Data sensor <span id="sensorType">-</span> untuk Node <span id="nodeId">-</span> 
-                                    pada tanggal <span id="sensorDate">-</span>:
-                                    Menampilkan data dari <span id="startTime">-</span> 
-                                    sampai <span id="endTime">-</span>.
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Kalender -->
+            <!-- Tanggal Input -->
             <div class="col-xl-4 col-md-5 mb-4">
                 <div class="card shadow h-100 py-2">
-                    <div class="card-body text-center">
-                        <div class="calendar-container">
-                            <!-- Year Navigation -->
-                            <div class="year-navigation d-flex justify-content-between align-items-center mb-2">
-                                <button id="prevYear" class="btn btn-sm btn-outline-secondary">&lt;</button>
-                                <span id="year" class="h5">2024</span>
-                                <button id="nextYear" class="btn btn-sm btn-outline-secondary">&gt;</button>
-                            </div>
-
-                            <!-- Month Navigation -->
-                            <div class="month-navigation d-flex justify-content-between align-items-center mb-2">
-                                <button id="prevMonth" class="btn btn-sm btn-outline-secondary">&lt;</button>
-                                <span id="month" class="h6">April</span>
-                                <button id="nextMonth" class="btn btn-sm btn-outline-secondary">&gt;</button>
-                            </div>
-
-                            <!-- Days of the month -->
-                            <div id="days" class="days-grid">
-                            </div>
-                        </div>
+                    <div class="card-body">
+                        <h5>Deskripsi Data</h5>
+                        <ul>
+                            <li><strong>Tanggal:</strong> <span id="descDate">{{ now()->format('Y-m-d') }}</span></li>
+                            <li><strong>Node:</strong> <span id="descNode">1</span></li>
+                            <li><strong>Sensor:</strong> <span id="descSensor">N</span></li>
+                        </ul>
+                        <h6>Data Summary:</h6>
+                        <ul id="dataSummary">
+                            <li>No data available.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 @endsection
 
 @section('js-footer')
-    <script src="{{ asset('assets/admin/js/chartdb.js') }}"></script>
-    <script src="{{ asset('assets/admin/js/calendardb.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            $(".dashboard-menu-link").addClass("active");
+            // Default values
+            let selectedNode = 1;
+            let selectedSensor = 'n';
+            let selectedDate = $('#selectedDate').val();
 
-            initializeChart();
-            initializeCalendar();
+            // Initialize chart
+            const ctx = document.getElementById('myChart').getContext('2d');
+            let chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time (Hours)'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Sensor Value'
+                            }
+                        },
+                    },
+                },
+            });
 
-            // Update chart and info dynamically
-            $('#sensorSelect').on('change', updateChartAndInfo);
+            // Initialize Datepicker
+            $('#datePicker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+            }).on('changeDate', function(e) {
+                selectedDate = e.format();
+                $('#selectedDate').val(selectedDate);
+                fetchData();
+            });
+
+            // Toast Notification Function
+            function showToast(message, variant = 'warning', mode = 'dismissable') {
+                const toast = document.getElementById('toastNotification');
+                const toastMessage = document.getElementById('toastMessage');
+
+                // Update toast message
+                toastMessage.textContent = message;
+
+                // Update toast variant
+                toast.classList.remove('text-bg-success', 'text-bg-info', 'text-bg-warning', 'text-bg-danger');
+                if (variant === 'success') toast.classList.add('text-bg-success');
+                else if (variant === 'info') toast.classList.add('text-bg-info');
+                else if (variant === 'danger' || variant === 'error') toast.classList.add('text-bg-danger');
+                else toast.classList.add('text-bg-warning');
+
+                // Show toast
+                const bsToast = new bootstrap.Toast(toast, {
+                    autohide: mode !== 'sticky',
+                    delay: mode === 'pester' ? 3000 : 5000,
+                });
+                bsToast.show();
+            }
+
+            // Reset Description
+            function resetDescription() {
+                $('#descDate').text(selectedDate);
+                $('#descNode').text(selectedNode);
+                $('#descSensor').text(selectedSensor);
+                $('#dataSummary').html('<li>No data available.</li>');
+            }
+
+            // Fetch Data
+            function fetchData() {
+                $.ajax({
+                    url: '/api/data',
+                    method: 'GET',
+                    data: {
+                        node: selectedNode,
+                        sensor: selectedSensor,
+                        date: selectedDate
+                    },
+                    success: function(response) {
+                        if (response.labels.length === 0) {
+                            resetDescription();
+                            showToast('No data found for the selected filters.', 'warning');
+                            return;
+                        }
+
+                        // Update chart
+                        chart.data.labels = response.labels;
+                        chart.data.datasets = [{
+                            label: `${selectedSensor} data`,
+                            data: response.values,
+                            borderColor: '#4c74dc',
+                            fill: false,
+                        }];
+                        chart.update();
+
+                        // Update description
+                        let dataSummary = response.values.map((value, index) =>
+                            `<li><strong>${response.labels[index]}:</strong> ${value}</li>`).join(
+                            '');
+                        $('#dataSummary').html(dataSummary);
+
+                        // Tampilkan toast sukses
+                        showToast('Data successfully generated!', 'success');
+                    },
+                    error: function() {
+                        showToast('Failed to fetch data. Please check your inputs or try again later.',
+                            'danger');
+                    },
+                });
+            }
+
+            // Event Listeners
             $('.node-btn').on('click', function() {
-                $('.node-btn').removeClass('active');
-                $(this).addClass('active');
-                updateChartAndInfo();
+                selectedNode = $(this).data('node');
+                $('.node-btn').removeClass('btn-primary').addClass('btn-secondary');
+                $(this).addClass('btn-primary').removeClass('btn-secondary');
+
+                resetDescription();
+                fetchData();
             });
 
-            $('#generateReport').on('click', function() {
-                // Call Laravel route to generate report
-                window.location.href = "{{ route('admin.generateReport') }}";
+            $('#sensorSelect').on('change', function() {
+                selectedSensor = $(this).val();
+                fetchData();
             });
+
+            fetchData();
         });
-
-        function updateChartAndInfo() {
-            let selectedSensor = $('#sensorSelect').val();
-            let selectedNode = $('.node-btn.active').data('node') || 1; // Default to Node 1
-            let date = new Date();
-
-            $('#sensorType').text(selectedSensor);
-            $('#nodeId').text(selectedNode);
-            $('#sensorDate').text(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`);
-            $('#startTime').text('00:00');
-            $('#endTime').text('22:00');
-
-            // Refresh Chart (Add logic for AJAX call here if needed)
-            loadChartData(selectedSensor, selectedNode);
-        }
     </script>
 @endsection

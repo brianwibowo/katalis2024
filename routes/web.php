@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\NotificationsController;
 use App\Http\Controllers\Admin\RecommenderController;
 use App\Http\Controllers\Admin\AIController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +32,8 @@ Route::post('/login', [LoginController::class, 'doLogin'])->name('admin.post_log
 
 // Route ke dashboard dengan middleware `auth`
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/api/data', [DashboardController::class, 'fetchData'])->name('dashboard.data');
 
-Route::get('/generate-report', [DashboardController::class, 'generateReport'])->name('admin.generateReport');
 
 // Route untuk halaman lainnya dengan controller masing-masing
 Route::get('/statistics', [StatisticsController::class, 'index'])->name('admin.statistics');
@@ -43,5 +44,6 @@ Route::get('/recommender', [RecommenderController::class, 'index'])->name('admin
 
 Route::post('/predict', [AIController::class, 'predict'])->name('predict');
 
-
+Route::get('/download-image', [RecommenderController::class, 'downloadImage'])->name('admin.recommender.downloadImage');
+Route::get('/generate-report', [RecommenderController::class, 'generateReport'])->name('admin.generateReport');
 

@@ -1,4 +1,9 @@
-.calendar-header {
+
+#calendar {
+    text-align: center;
+}
+
+#calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -35,6 +35,13 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    <!-- Tombol download -->
+                    <div class="mt-3">
+                        <a href="{{ route('admin.recommender.downloadImage') }}" class="btn btn-sm btn-primary">Download Image</a>
+                        <a href="{{ route('admin.generateReport') }}" class="btn btn-sm btn-success">Download Excel</a>
+                    </div>
+
                 @else
                     <p class="text-danger">No prediction result available.</p>
                 @endif

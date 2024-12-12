@@ -7,12 +7,22 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Models\CheckAI;
+use Illuminate\Support\Facades\Http;
 
 class RecommenderController extends Controller
 {
     public function index()
     {
-        return view('admin.recommender');
+        // Ambil semua hasil prediksi yang telah disimpan
+        $data = CheckAI::all();
+        
+        // Ambil data untuk dropdown node dan tanggal
+        // Sesuaikan dengan data yang perlu ditampilkan di dropdown
+        $nodes = ['Node 1', 'Node 2', 'Node 3']; // Contoh
+        $dates = CheckAI::select('created_at')->distinct()->get();
+
+        return view('admin.recommender', compact('data', 'nodes', 'dates'));
     }
     
     public function predict(Request $request)
@@ -20,10 +30,22 @@ class RecommenderController extends Controller
         // Ambil data dari input pengguna (sensor data)
         $inputData = $request->all();
 
-        // Panggil AI model untuk memproses data
+        // Kirim data ke API AI untuk mendapatkan hasil prediksi
         $aiResult = $this->callAI($inputData);
 
-        // Format hasil AI dan input data menjadi struktur yang sesuai
+        // Simpan hasil prediksi ke tabel check_ai_results
+        $checkAI = CheckAI::create([
+            'crop' => $aiResult['predicted_crop'],
+            'n_value' => $inputData['n'],
+            'p_value' => $inputData['p'],
+            'k_value' => $inputData['k'],
+            'temperature' => $inputData['temperature'],
+            'ph' => $inputData['ph'],
+            'humidity' => $inputData['humidity'],
+            'status' => $aiResult['status'],
+        ]);
+
+        // Format hasil prediksi untuk ditampilkan
         $prediction = [
             'Crop' => $aiResult['predicted_crop'],
             'Parameters' => $aiResult['parameters']
@@ -32,18 +54,36 @@ class RecommenderController extends Controller
         // Menyimpan hasil prediksi dalam session
         session(['prediction' => $prediction]);
 
+        // Tampilkan hasil prediksi
         return view('admin.recommender.result', compact('prediction'));
     }
 
     private function callAI($inputData)
     {
-        // Simulasi pemanggilan AI
+        // Simulasi pemanggilan API AI yang sudah ada (FastAPI)
+        $response = Http::post('http://10.2.16.100:4430/predict/', [
+            'n' => $inputData['n'],
+            'p' => $inputData['p'],
+            'k' => $inputData['k'],
+            'temperature' => $inputData['temperature'],
+            'ph' => $inputData['ph'],
+            'humidity' => $inputData['humidity'],
+        ]);
+
+        // Ambil data hasil prediksi dari response
+        $data = $response->json();
+
         return [
-            'predicted_crop' => 'Tomato',
+            'predicted_crop' => $data['crop'],
             'parameters' => [
-                'N' => ['value' => 3.5, 'mean' => 5.0, 'status' => 'Optimal'],
-                'P' => ['value' => 1.2, 'mean' => 4.5, 'status' => 'Warning'],
-            ]
+                'N' => ['value' => $data['n'], 'mean' => 5.0, 'status' => 'Optimal'],
+                'P' => ['value' => $data['p'], 'mean' => 4.5, 'status' => 'Warning'],
+                'K' => ['value' => $data['k'], 'mean' => 4.8, 'status' => 'Optimal'],
+                'Temperature' => ['value' => $data['temperature'], 'mean' => 22.0, 'status' => 'Optimal'],
+                'pH' => ['value' => $data['ph'], 'mean' => 6.5, 'status' => 'Optimal'],
+                'Humidity' => ['value' => $data['humidity'], 'mean' => 60.0, 'status' => 'Optimal'],
+            ],
+            'status' => $data['status'],
         ];
     }
 
@@ -79,5 +119,3 @@ class RecommenderController extends Controller
         return response()->download($path)->deleteFileAfterSend(true);
     }
 }
-
-

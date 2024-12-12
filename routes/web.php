@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\NotificationsController;
 use App\Http\Controllers\Admin\RecommenderController;
 use App\Http\Controllers\Admin\AIController;
+use App\Http\Controllers\Admin\CheckAIController;
 
 
 /*
@@ -41,9 +42,12 @@ Route::get('/components', [ComponentsController::class, 'index'])->name('admin.c
 Route::get('/history', [HistoryController::class, 'index'])->name('admin.history');
 Route::get('/notifications', [NotificationsController::class, 'index'])->name('admin.notifications');
 Route::get('/recommender', [RecommenderController::class, 'index'])->name('admin.recommender');
+Route::post('/recommender/predict', [RecommenderController::class, 'predict'])->name('predict');
+Route::post('/recommender/predict', [RecommenderController::class, 'predict'])->name('admin.recommender.predict');
 
 Route::post('/predict', [AIController::class, 'predict'])->name('predict');
 
 Route::get('/download-image', [RecommenderController::class, 'downloadImage'])->name('admin.recommender.downloadImage');
 Route::get('/generate-report', [RecommenderController::class, 'generateReport'])->name('admin.generateReport');
-
+Route::get('/recommender/download-image', [RecommenderController::class, 'downloadImage'])->name('admin.recommender.downloadImage');
+Route::get('/recommender/download-report', [RecommenderController::class, 'generateReport'])->name('admin.generateReport');

@@ -1,23 +1,39 @@
 <?php
-// Koneksi ke database
 $conn = new mysqli('127.0.0.1', 'greenhouse', 'niFurVVaTtmW53egIGmu', 'greenhousedb');
 
-// Cek koneksi
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Insert data dari historical_data ke datamart_daily setiap 2 Jam
-$sql_insert_datamart_daily = "
-    INSERT INTO datamart_daily (created_at, node, n, p, k, temperature, ph, humidity)
-    SELECT created_at, node, n, p, k, temperature, ph, humidity
-    FROM historical_data
-    WHERE created_at >= NOW() - INTERVAL '2 hour';
+$sql_select_data_sensor_now = "
+    SELECT created_at, node, n, p, k, temperature, ph, humidity 
+    FROM data_sensor_now
 ";
-if ($conn->query($sql_insert_datamart_daily) === TRUE) {
-    file_put_contents(__DIR__ . '/cron_log_datamart_daily.txt', date('Y-m-d H:i:s') . " - Data berhasil dimasukkan ke datamart_daily\n", FILE_APPEND);
-} else {
-    file_put_contents(__DIR__ . '/cron_log_datamart_daily.txt', date('Y-m-d H:i:s') . " - Error: " . $conn->error . "\n", FILE_APPEND);
+$result = $conn->query($sql_select_data_sensor_now);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $data = json_encode($row);
+        $response = file_get_contents("http://<url-api-ai>/predict", false, stream_context_create([
+            "http" => [
+                "method" => "POST",
+                "header" => "Content-type: application/json\r\n",
+                "content" => $data
+            ]
+        ]));
+
+        $prediction = json_decode($response, true);
+        $sql_insert = "
+            INSERT INTO check_ai 
+            (created_at, node, n, p, k, temperature, ph, humidity, crop, parameters) 
+            VALUES (
+                '{$row['created_at']}', '{$row['node']}', {$row['n']}, {$row['p']}, {$row['k']}, 
+                {$row['temperature']}, {$row['ph']}, {$row['humidity']}, 
+                '{$prediction['Crop']}', '" . json_encode($prediction['Parameters']) . "'
+            )
+        ";
+        $conn->query($sql_insert);
+    }
 }
 
 $conn->close();
